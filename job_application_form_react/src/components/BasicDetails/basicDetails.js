@@ -34,7 +34,6 @@ export default function BasicDetails() {
                 Basic Details
             </Typography>
             <br />
-            <br />
             <Grid container>
                 <Grid item xs={12} sm={4}>
                     <InputField

@@ -1,13 +1,13 @@
 import React from "react";
 import { useField, ErrorMessage } from "formik";
 
-const SelectField = ({ label, selectChildren, ...props }) => {
+const SelectField = ({ refer, label, selectChildren, ...props }) => {
     const [field, meta] = useField(props);
 
     return (
         <div className="select-container">
             <label>{label}</label>
-            <select {...field} {...props}>
+            <select ref={refer} {...field} {...props}>
                 {selectChildren.map((item) => {
                     return <OptionFields data={item} />
                 })}
