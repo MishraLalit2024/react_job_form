@@ -47,6 +47,30 @@ export default {
             label: "Email Address: ",
             requiredErrorMsg: "Required fields must not be empty!",
             invalidErrorMsg: "Please enter a valid email address!"
+        },
+        state: {
+            name: "state",
+            type: "select",
+            label: "State: ",
+            requiredErrorMsg: "Required fields must not be empty!"
+        },
+        city: {
+            name: "city",
+            type: "select",
+            label: "City: ",
+            requiredErrorMsg: "Required fields must not be empty!"
+        },
+        designation: {
+            name: "designation-old",
+            type: "select",
+            label: "Designation: ",
+            requiredErrorMsg: "Required!"
+        },
+        gender: {
+            name: "gender",
+            type: "select",
+            label: "Gender: ",
+            requiredErrorMsg: "Required!"
         }
     }
 }

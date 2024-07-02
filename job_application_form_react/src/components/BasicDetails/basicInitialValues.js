@@ -7,5 +7,9 @@ export default {
     address1: '',
     address2: '',
     phone: '',
-    email: ''
+    email: '',
+    state: '',
+    city: '',
+    gender: '',
+    designation: ''
 };

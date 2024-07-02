@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import basicDetailsModel from "./basicDetailsModel";
 import { InputField } from "../common/inputField";
-import { Field, Form, Formik } from 'formik';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import statesAndCities from "./statesAndCities";
+import SelectField from "../common/selectField";
 
 
 export default function BasicDetails() {
@@ -17,8 +17,16 @@ export default function BasicDetails() {
             address2,
             phone,
             email,
+            state,
+            city,
+            designation,
+            gender
         }
     } = basicDetailsModel;
+    const [stateValue, changeState] = useState('Andaman and Nicobar Islands');
+    const [cityValue, changeCity] = useState('');
+    const [designationValue, changeDesignation] = useState('Junior Software Developer');
+    const [genderValue, changeGender] = useState('Male');
 
     return (
         <React.Fragment>
@@ -86,7 +94,55 @@ export default function BasicDetails() {
                     />
                 </Grid>
             </Grid>
-        </React.Fragment>
+            <br />
+            <br />
+            <Grid container>
+                <Grid item xs={12} sm={6}>
+                    <SelectField
+                        label={state.label}
+                        selectChildren={Object.keys(statesAndCities)}
+                        name={state.name}
+                        onChange={e => changeState(e.target.value)}
+                        value={stateValue}
+                    ></SelectField>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <SelectField
+                        label={city.label}
+                        selectChildren={statesAndCities[`${stateValue}`]}
+                        name={city.name}
+                        onChange={e => {
+                            changeCity(e.target.value)
+                        }}
+                        value={cityValue}
+                    ></SelectField>
+                </Grid>
+            </Grid>
+            <br />
+            <br />
+            <Grid container>
+                <Grid item xs={12} sm={6}>
+                    <SelectField
+                        label={gender.label}
+                        selectChildren={['Male', 'Female', 'Others']}
+                        name={gender.name}
+                        onChange={e => changeGender(e.target.value)}
+                        value={genderValue}
+                    ></SelectField>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <SelectField
+                        label={designation.label}
+                        selectChildren={["Junior Software Developer", "Senior Software Developer", "Quality Assurance Officer"]}
+                        name={designation.name}
+                        onChange={e => {
+                            changeDesignation(e.target.value)
+                        }}
+                        value={designationValue}
+                    ></SelectField>
+                </Grid>
+            </Grid>
+        </React.Fragment >
     );
 }
 

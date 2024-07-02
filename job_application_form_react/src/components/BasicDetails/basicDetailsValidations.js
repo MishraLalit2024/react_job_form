@@ -3,7 +3,7 @@ import basicDetailsModel from "./basicDetailsModel";
 
 const phoneRegex = /[0-9]$/;
 const emailregex = /^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/;
-const nameRegex = /([A-Za-z])\w+/g;
+const nameRegex = /^[A-Za-z]+$/;
 
 
 export const validationSchema = Yup.object().shape({
@@ -28,4 +28,4 @@ export const validationSchema = Yup.object().shape({
         .required(`${basicDetailsModel.formField.email.requiredErrorMsg}`)
         .matches(emailregex, basicDetailsModel.formField.email.invalidErrorMsg)
 })
-console.log(validationSchema);
+// console.log(validationSchema);
